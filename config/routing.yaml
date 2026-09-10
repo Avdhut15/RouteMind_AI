@@ -1,0 +1,54 @@
+# RouteMind_AI — Routing Configuration
+# Controls routing policy, utility weights, quality thresholds, and escalation rules.
+# All values here are INITIAL CONFIGURATION ESTIMATES — not experimentally validated.
+
+# ── Utility Scoring Weights ───────────────────────────────────────────────────
+# Utility = (quality_weight * expected_quality)
+#         - (cost_weight * estimated_cost)
+#         - (latency_weight * expected_latency)
+utility_weights:
+  quality_weight: 0.5
+  cost_weight: 0.3
+  latency_weight: 0.2
+
+# ── Quality Thresholds (per task type) ───────────────────────────────────────
+# Responses scoring below these thresholds trigger escalation.
+# IMPORTANT: These are initial config values, NOT measured/validated results.
+quality_thresholds:
+  extraction: 0.90
+  classification: 0.90
+  summarization: 0.80
+  reasoning: 0.85
+  coding: 0.85
+  qa: 0.80
+  default: 0.80
+
+# ── Initial Rule-Based Tier Policies (Phase 2 baseline) ───────────────────────
+# Used as a simple routing baseline before the ML classifier is trained.
+# Maps complexity tiers to model quality tier constraints.
+# NOTE: This is a BASELINE strategy only; the final router uses utility scoring.
+tier_policies:
+  tier_1:
+    preferred_quality_tier: "tier_1"
+    fallback_quality_tier: "tier_2"
+  tier_2:
+    preferred_quality_tier: "tier_2"
+    fallback_quality_tier: "tier_3"
+  tier_3:
+    preferred_quality_tier: "tier_3"
+    fallback_quality_tier: "tier_3"
+
+# ── Escalation Rules ──────────────────────────────────────────────────────────
+escalation:
+  max_escalation_attempts: 1       # Max times a request can be escalated
+  escalation_tier_step: 1          # Number of quality tiers to jump on escalation
+
+# ── Verification Mode ─────────────────────────────────────────────────────────
+# sync: Verify before returning response (enables escalation, higher latency)
+# async: Return immediately, verify in background (lower latency, no escalation)
+verification_mode: "sync"
+
+# ── Benchmark Baseline Strategy ───────────────────────────────────────────────
+# Used in Phase 6 comparisons.
+# Options: always_high_tier | rule_based | autonomous
+baseline_strategy: "always_high_tier"

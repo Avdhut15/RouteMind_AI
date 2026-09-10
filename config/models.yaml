@@ -1,0 +1,87 @@
+# RouteMind_AI — Model Registry Configuration
+# All model definitions live here. Do NOT hardcode model metadata in Python source.
+#
+# quality_tier: tier_1 (low-cost/simple) | tier_2 (mid) | tier_3 (high-capability)
+# Costs: USD per 1,000 tokens. Use configured simulation values for free-tier models.
+
+models:
+
+  # ── OpenRouter Models ────────────────────────────────────────────────────────
+  - model_id: "openai/gpt-oss-20b:free"
+    provider: "openrouter"
+    display_name: "GPT OSS 20B (OpenRouter Free)"
+    input_cost_per_1k_tokens: 0.0001     # Simulated cost for benchmarking
+    output_cost_per_1k_tokens: 0.0002
+    average_latency_ms: 2000
+    quality_tier: "tier_2"
+    quality_score: 0.72
+    reasoning_score: 0.68
+    coding_score: 0.65
+    summarization_score: 0.74
+    extraction_score: 0.78
+    context_window: 16000
+    enabled: true
+
+  - model_id: "google/gemma-4-31b-it:free"
+    provider: "openrouter"
+    display_name: "Gemma 4 31B IT (OpenRouter Free)"
+    input_cost_per_1k_tokens: 0.00005
+    output_cost_per_1k_tokens: 0.0001
+    average_latency_ms: 2500
+    quality_tier: "tier_2"
+    quality_score: 0.70
+    reasoning_score: 0.65
+    coding_score: 0.62
+    summarization_score: 0.72
+    extraction_score: 0.76
+    context_window: 8192
+    enabled: true
+
+  - model_id: "nvidia/nemotron-3.5-lightning:free"
+    provider: "openrouter"
+    display_name: "Nemotron 3.5 Lightning (OpenRouter Free)"
+    input_cost_per_1k_tokens: 0.00003
+    output_cost_per_1k_tokens: 0.00006
+    average_latency_ms: 1500
+    quality_tier: "tier_1"
+    quality_score: 0.62
+    reasoning_score: 0.55
+    coding_score: 0.52
+    summarization_score: 0.64
+    extraction_score: 0.70
+    context_window: 4096
+    enabled: true
+
+  # ── Ollama Local Models ───────────────────────────────────────────────────────
+  - model_id: "gemma3:4b"
+    provider: "ollama"
+    display_name: "Gemma 3 4B (Local)"
+    input_cost_per_1k_tokens: 0.0       # Free local inference
+    output_cost_per_1k_tokens: 0.0
+    average_latency_ms: 3000
+    quality_tier: "tier_1"
+    quality_score: 0.58
+    reasoning_score: 0.50
+    coding_score: 0.48
+    summarization_score: 0.60
+    extraction_score: 0.65
+    context_window: 8192
+    enabled: false                       # Enable only when Ollama is running locally
+
+  - model_id: "llama3.1:8b"
+    provider: "ollama"
+    display_name: "Llama 3.1 8B (Local)"
+    input_cost_per_1k_tokens: 0.0
+    output_cost_per_1k_tokens: 0.0
+    average_latency_ms: 4000
+    quality_tier: "tier_2"
+    quality_score: 0.66
+    reasoning_score: 0.62
+    coding_score: 0.60
+    summarization_score: 0.67
+    extraction_score: 0.72
+    context_window: 128000
+    enabled: false                       # Enable only when Ollama is running locally
+
+# NOTE: Scores above are initial configuration ESTIMATES.
+# They will be replaced with measured benchmark values after Phase 1 experiments.

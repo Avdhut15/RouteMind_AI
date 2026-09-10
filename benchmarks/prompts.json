@@ -1,0 +1,225 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "phase": "Phase 1 — Initial Benchmark",
+    "total_prompts": 30,
+    "categories": {
+      "tier_1_simple": 10,
+      "tier_2_moderate": 10,
+      "tier_3_complex": 10
+    },
+    "note": "Complexity labels are initial development estimates, not scientifically validated. Expand to 200+ labeled prompts for Phase 2 classifier training."
+  },
+  "prompts": [
+    {
+      "id": "s001",
+      "tier": "tier_1",
+      "category": "extraction",
+      "task_type": "extraction",
+      "prompt": "Extract the email address from the following text:\n\nPlease contact John Smith at john.smith@example.com for further information."
+    },
+    {
+      "id": "s002",
+      "tier": "tier_1",
+      "category": "qa",
+      "task_type": "qa",
+      "prompt": "What is the capital of France?"
+    },
+    {
+      "id": "s003",
+      "tier": "tier_1",
+      "category": "transformation",
+      "task_type": "transformation",
+      "prompt": "Convert the following paragraph into a bullet-point list:\n\nThe project has three main phases. Phase 1 covers infrastructure setup. Phase 2 implements the routing logic. Phase 3 adds quality verification."
+    },
+    {
+      "id": "s004",
+      "tier": "tier_1",
+      "category": "extraction",
+      "task_type": "extraction",
+      "prompt": "Extract all person names from the following text:\n\nThe meeting was attended by Alice Johnson, Bob Martinez, and Carol Lee. The session was chaired by David Kim."
+    },
+    {
+      "id": "s005",
+      "tier": "tier_1",
+      "category": "transformation",
+      "task_type": "transformation",
+      "prompt": "Reformat the following JSON so that all keys are in snake_case:\n\n{\"FirstName\": \"Alice\", \"LastName\": \"Johnson\", \"EmailAddress\": \"alice@example.com\"}"
+    },
+    {
+      "id": "s006",
+      "tier": "tier_1",
+      "category": "qa",
+      "task_type": "qa",
+      "prompt": "What does HTTP stand for?"
+    },
+    {
+      "id": "s007",
+      "tier": "tier_1",
+      "category": "extraction",
+      "task_type": "extraction",
+      "prompt": "Extract the date and location from the following sentence:\n\nThe conference will be held on March 15, 2025, in New York City."
+    },
+    {
+      "id": "s008",
+      "tier": "tier_1",
+      "category": "transformation",
+      "task_type": "transformation",
+      "prompt": "Translate the following English sentence into French:\n\nThe weather is nice today."
+    },
+    {
+      "id": "s009",
+      "tier": "tier_1",
+      "category": "qa",
+      "task_type": "qa",
+      "prompt": "How many days are in a leap year?"
+    },
+    {
+      "id": "s010",
+      "tier": "tier_1",
+      "category": "transformation",
+      "task_type": "transformation",
+      "prompt": "Convert the following list of items into a comma-separated string:\n\n- Apple\n- Banana\n- Cherry\n- Date"
+    },
+    {
+      "id": "m001",
+      "tier": "tier_2",
+      "category": "summarization",
+      "task_type": "summarization",
+      "prompt": "Summarize the following article in 3-4 sentences, preserving the key technical points:\n\nDocker is an open-source platform that automates the deployment, scaling, and management of containerized applications. Containers allow developers to package an application with all its dependencies into a standardized unit for software development. Docker uses a client-server architecture where the Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing Docker containers. Docker Hub provides a cloud-based registry service for building and shipping application or service containers. Docker containers are lightweight compared to virtual machines because they share the host OS kernel rather than running a full operating system."
+    },
+    {
+      "id": "m002",
+      "tier": "tier_2",
+      "category": "classification",
+      "task_type": "classification",
+      "prompt": "Classify the following customer review as Positive, Negative, or Neutral, and provide a one-sentence justification:\n\n\"The product arrived on time and was well-packaged, but the battery life is much shorter than advertised and the app keeps crashing.\""
+    },
+    {
+      "id": "m003",
+      "tier": "tier_2",
+      "category": "comparison",
+      "task_type": "comparison",
+      "prompt": "Compare REST APIs and GraphQL APIs in terms of:\n1. Data fetching flexibility\n2. Versioning approach\n3. Best use cases\n\nProvide a structured comparison with one paragraph per dimension."
+    },
+    {
+      "id": "m004",
+      "tier": "tier_2",
+      "category": "structured_generation",
+      "task_type": "structured_generation",
+      "prompt": "Given the following product description, generate a structured JSON object with the fields: product_name, price_usd, category, key_features (as a list), and availability.\n\nDescription: The SoundWave Pro headphones are wireless Bluetooth headphones priced at $149.99. They fall under the Electronics category and offer 40-hour battery life, active noise cancellation, and a foldable design. Currently in stock."
+    },
+    {
+      "id": "m005",
+      "tier": "tier_2",
+      "category": "analysis",
+      "task_type": "analysis",
+      "prompt": "Analyze the following dataset description and identify the top 3 most likely sources of data quality issues:\n\nDataset: Monthly sales records from 50 regional stores over 5 years. Data is entered manually by store managers. Fields include store_id, date, product_id, quantity_sold, and sale_price. The dataset has 120,000 rows."
+    },
+    {
+      "id": "m006",
+      "tier": "tier_2",
+      "category": "summarization",
+      "task_type": "summarization",
+      "prompt": "Summarize the following technical documentation section in plain language suitable for a non-technical manager:\n\nThe rate limiting mechanism is implemented using a token bucket algorithm. Each API client is assigned a bucket with a capacity of 100 tokens. Tokens are replenished at a rate of 10 tokens per second. Each API request consumes one token. If the bucket is empty, the request is rejected with HTTP 429. This prevents any single client from consuming excessive server resources."
+    },
+    {
+      "id": "m007",
+      "tier": "tier_2",
+      "category": "classification",
+      "task_type": "classification",
+      "prompt": "Classify each of the following support tickets by priority level (Low, Medium, High, Critical) and provide a one-sentence reason for each:\n\n1. User cannot log in to their account.\n2. The export button is misaligned on mobile screens.\n3. The payment processing service is returning errors for all transactions.\n4. A user wants to change their display name."
+    },
+    {
+      "id": "m008",
+      "tier": "tier_2",
+      "category": "comparison",
+      "task_type": "comparison",
+      "prompt": "Compare PostgreSQL and MongoDB for the following use cases:\n1. Financial transaction records\n2. User-generated content with variable structure\n3. Real-time analytics\n\nFor each use case, recommend one database and justify the choice."
+    },
+    {
+      "id": "m009",
+      "tier": "tier_2",
+      "category": "analysis",
+      "task_type": "analysis",
+      "prompt": "Review the following Python function and identify any bugs, inefficiencies, or code quality issues:\n\ndef get_user_emails(users):\n    result = []\n    for i in range(0, len(users)):\n        if users[i]['active'] == True:\n            result.append(users[i]['email'])\n    return result"
+    },
+    {
+      "id": "m010",
+      "tier": "tier_2",
+      "category": "structured_generation",
+      "task_type": "structured_generation",
+      "prompt": "Generate a structured API error response object in JSON format for the following scenario:\n\nA user attempted to create a new account but provided an email address that is already registered. The request was made to POST /api/v1/users. Include appropriate HTTP status code, error code, message, and a field-level detail."
+    },
+    {
+      "id": "c001",
+      "tier": "tier_3",
+      "category": "reasoning",
+      "task_type": "reasoning",
+      "prompt": "A logistics company operates 5 warehouses (A, B, C, D, E). Each warehouse has a daily supply capacity and each city it serves has a daily demand. Warehouse A: capacity 200. Warehouse B: capacity 150. City X: demand 180. City Y: demand 120. Cost from A to X: $2, A to Y: $4. Cost from B to X: $3, B to Y: $1. Formulate the optimal shipping allocation to minimize total transportation cost while satisfying all demands and not exceeding warehouse capacities. Show your reasoning step by step."
+    },
+    {
+      "id": "c002",
+      "tier": "tier_3",
+      "category": "architecture",
+      "task_type": "architecture",
+      "prompt": "Analyze the following two system architecture designs for a high-traffic e-commerce platform processing 10,000 requests/second:\n\nDesign A: Monolithic application with vertical scaling.\nDesign B: Microservices with horizontal scaling, service mesh, and event-driven communication.\n\nCompare both designs across: scalability, fault tolerance, deployment complexity, development speed, and cost. Then recommend the better approach for a startup expecting 10x growth in 12 months, with specific justifications for each trade-off."
+    },
+    {
+      "id": "c003",
+      "tier": "tier_3",
+      "category": "coding",
+      "task_type": "coding",
+      "prompt": "Debug the following Python async code that is supposed to concurrently fetch data from multiple URLs and return results. Identify all bugs, explain why each is a bug, and provide the corrected implementation:\n\nimport asyncio\nimport aiohttp\n\ndef fetch_all(urls):\n    results = []\n    for url in urls:\n        response = asyncio.run(aiohttp.ClientSession().get(url))\n        results.append(response.json())\n    return results"
+    },
+    {
+      "id": "c004",
+      "tier": "tier_3",
+      "category": "reasoning",
+      "task_type": "reasoning",
+      "prompt": "A software team is deciding between three caching strategies for a read-heavy API with 1 million daily requests, 80% cache hit rate target, and a dataset of 500GB:\n\nStrategy 1: Redis with LRU eviction, 32GB memory allocation.\nStrategy 2: Memcached with consistent hashing across 8 nodes.\nStrategy 3: Application-level in-memory cache with TTL-based eviction.\n\nAnalyze the trade-offs considering: memory efficiency, consistency guarantees, horizontal scalability, operational complexity, and failure modes. Recommend the most suitable strategy with quantitative reasoning where possible."
+    },
+    {
+      "id": "c005",
+      "tier": "tier_3",
+      "category": "coding",
+      "task_type": "coding",
+      "prompt": "Implement a Python class called RateLimiter that uses the token bucket algorithm. Requirements:\n- Thread-safe\n- Configurable capacity and refill rate\n- Non-blocking check (returns bool)\n- Blocking acquire with optional timeout\n- Provides current token count\n- Includes proper docstrings and type hints\n\nAlso write 3 unit tests for edge cases."
+    },
+    {
+      "id": "c006",
+      "tier": "tier_3",
+      "category": "analysis",
+      "task_type": "analysis",
+      "prompt": "The following distributed system has been experiencing intermittent data inconsistencies. Analyze the scenario and identify the root cause:\n\nSystem: Three microservices (Order, Inventory, Payment) communicate via REST APIs. The sequence is: Order service creates order, calls Inventory to reserve stock, calls Payment to charge. Inventory reservation succeeds but Payment fails. The system retries Payment, which succeeds. But the order now has duplicate payment charges. Provide a thorough root cause analysis and propose two different architectural solutions, evaluating each."
+    },
+    {
+      "id": "c007",
+      "tier": "tier_3",
+      "category": "architecture",
+      "task_type": "architecture",
+      "prompt": "Design a real-time fraud detection system for a digital bank processing 5,000 transactions per second. The system must flag suspicious transactions within 100ms. Include:\n1. High-level architecture (described in text)\n2. Technology choices with justifications\n3. Data flow description\n4. How the system handles false positives\n5. How the model gets retrained without downtime\n6. Failure modes and mitigations"
+    },
+    {
+      "id": "c008",
+      "tier": "tier_3",
+      "category": "reasoning",
+      "task_type": "reasoning",
+      "prompt": "A machine learning model achieves 95% accuracy on the test set but performs poorly in production. The training data contains 1 million records collected over 2 years. The production environment processes real-time data. Conduct a systematic root cause analysis considering: data distribution shift, feature leakage, class imbalance, evaluation metric mismatch, and deployment pipeline issues. For each potential cause, describe how you would diagnose it and what remediation you would apply."
+    },
+    {
+      "id": "c009",
+      "tier": "tier_3",
+      "category": "coding",
+      "task_type": "coding",
+      "prompt": "Design and implement a Python context manager class called DatabaseTransaction that:\n- Wraps a database connection object\n- Begins a transaction on entry\n- Commits on successful exit\n- Rolls back on exception\n- Logs all operations with timestamps\n- Supports nested transactions using savepoints\n- Is fully typed with generics\n\nInclude error handling for connection failures during commit/rollback."
+    },
+    {
+      "id": "c010",
+      "tier": "tier_3",
+      "category": "analysis",
+      "task_type": "analysis",
+      "prompt": "You are given the following system metrics over the past 24 hours:\n- API response time gradually increased from 120ms to 850ms over 8 hours\n- Database connection pool utilization: 95%\n- CPU usage: 45% (stable)\n- Memory usage: 78% (stable)\n- Active database queries: increased from avg 50 to avg 340 concurrent queries\n- No deployments in the past 48 hours\n- Traffic volume: unchanged\n\nConduct a systematic performance diagnosis. Identify the most likely root cause, explain the causal chain from the evidence, and provide a prioritized remediation plan with expected impact of each action."
+    }
+  ]
+}
