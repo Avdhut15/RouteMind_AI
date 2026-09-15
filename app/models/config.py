@@ -80,6 +80,22 @@ class ModelConfig(BaseModel):
     summarization_score: float = Field(default=0.5, ge=0.0, le=1.0)
     extraction_score: float = Field(default=0.5, ge=0.0, le=1.0)
 
+    # ── Explicit Capability Flags ────────────────────────────────────────────
+    # These cannot be reliably inferred from numeric scores alone.
+    # Defaults are permissive (True) so existing entries without these fields
+    # continue to load without errors.
+    supports_structured_output: bool = Field(
+        default=True,
+        description=(
+            "True when the model reliably follows structured-output instructions "
+            "(JSON mode, schema-constrained generation, etc.)."
+        ),
+    )
+    supports_function_calling: bool = Field(
+        default=True,
+        description="True when the model supports tool/function-calling APIs.",
+    )
+
     # ── Context & Availability ────────────────────────────────────────────────
     context_window: int = Field(default=4096, gt=0, description="Max context window in tokens.")
     enabled: bool = Field(default=True, description="Whether this model is active.")

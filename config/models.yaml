@@ -3,6 +3,10 @@
 #
 # quality_tier: tier_1 (low-cost/simple) | tier_2 (mid) | tier_3 (high-capability)
 # Costs: USD per 1,000 tokens. Use configured simulation values for free-tier models.
+#
+# Phase 2 Part 3 additions:
+#   supports_structured_output: true if model reliably follows structured/JSON output instructions
+#   supports_function_calling:  true if model supports tool/function-calling APIs
 
 models:
 
@@ -20,6 +24,8 @@ models:
     summarization_score: 0.74
     extraction_score: 0.78
     context_window: 16000
+    supports_structured_output: true
+    supports_function_calling: true
     enabled: true
 
   - model_id: "google/gemma-4-31b-it:free"
@@ -35,6 +41,8 @@ models:
     summarization_score: 0.72
     extraction_score: 0.76
     context_window: 8192
+    supports_structured_output: true
+    supports_function_calling: false
     enabled: true
 
   - model_id: "nvidia/nemotron-3.5-lightning:free"
@@ -50,6 +58,8 @@ models:
     summarization_score: 0.64
     extraction_score: 0.70
     context_window: 4096
+    supports_structured_output: false
+    supports_function_calling: false
     enabled: true
 
   # ── Ollama Local Models ───────────────────────────────────────────────────────
@@ -66,6 +76,8 @@ models:
     summarization_score: 0.60
     extraction_score: 0.65
     context_window: 8192
+    supports_structured_output: false
+    supports_function_calling: false
     enabled: false                       # Enable only when Ollama is running locally
 
   - model_id: "llama3.1:8b"
@@ -81,6 +93,8 @@ models:
     summarization_score: 0.67
     extraction_score: 0.72
     context_window: 128000
+    supports_structured_output: true
+    supports_function_calling: false
     enabled: false                       # Enable only when Ollama is running locally
 
 # NOTE: Scores above are initial configuration ESTIMATES.
