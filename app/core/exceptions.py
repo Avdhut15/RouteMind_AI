@@ -60,3 +60,38 @@ class ProviderResponseError(ProviderError):
 
 class TokenExtractionError(ProviderError):
     """Raised when token counts cannot be extracted from a provider response."""
+
+
+# ── Routing Errors (Phase 2) ──────────────────────────────────────────────────
+
+class RoutingError(RouteMindError):
+    """Base class for errors that occur during the routing decision pipeline."""
+
+
+class NoEligibleCandidatesError(RoutingError):
+    """
+    Raised when no model passes the candidate selection filters.
+
+    This means the request cannot be served at all — not a provider error,
+    but a routing-policy failure (e.g., all models are too low-tier, or the
+    context window is too large for every registered model).
+    """
+
+
+class ModelResolutionError(RoutingError):
+    """
+    Raised when a selected model_id cannot be resolved to a ModelConfig.
+
+    Indicates an invalid routing state — the scorer returned a model_id
+    that is not present in the ModelRegistry.
+    """
+
+
+class ProviderNotRegisteredError(RoutingError):
+    """
+    Raised when the provider name from a ModelConfig has no registered
+    LLMProvider instance in the ProviderRegistry.
+
+    Distinct from ProviderUnavailableError (which is a runtime network error):
+    this is a configuration / startup error — the provider was never wired up.
+    """
