@@ -11,6 +11,7 @@ from app.evaluation.models import (
     EvaluationResult,
 )
 from app.evaluation.base import BaseEvaluator
+from app.evaluation.deterministic import DeterministicEvaluator
 
 __all__ = [
     "EvaluationStatus",
@@ -18,4 +19,5 @@ __all__ = [
     "QualityDecision",
     "EvaluationResult",
     "BaseEvaluator",
+    "DeterministicEvaluator",
 ]
