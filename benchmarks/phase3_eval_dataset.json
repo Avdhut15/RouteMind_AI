@@ -1,0 +1,235 @@
+{
+  "_meta": {
+    "dataset_version": "1.0",
+    "phase": "Phase 3 — Quality Evaluation Validation",
+    "description": "Controlled synthetic dataset for validating the Phase 3 evaluation pipeline. All cases are synthetic. Do NOT interpret scores as real-world model performance.",
+    "evaluation_mode": "offline_deterministic"
+  },
+  "cases": [
+    {
+      "id": "hq-001",
+      "category": "high_quality",
+      "expected_decision": "pass",
+      "request": {
+        "prompt": "What is the capital of France?",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "The capital of France is Paris.",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "hq-002",
+      "category": "high_quality",
+      "expected_decision": "pass",
+      "request": {
+        "prompt": "Explain briefly what photosynthesis is.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "Photosynthesis is the process by which plants use sunlight, water, and carbon dioxide to produce oxygen and energy in the form of glucose.",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "hq-003",
+      "category": "high_quality",
+      "expected_decision": "pass",
+      "request": {
+        "prompt": "What does the acronym HTTP stand for?",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "HTTP stands for HyperText Transfer Protocol.",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "hq-004",
+      "category": "high_quality",
+      "expected_decision": "pass",
+      "request": {
+        "prompt": "What is 15 multiplied by 7?",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "15 multiplied by 7 is 105.",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "hq-005",
+      "category": "high_quality_json",
+      "expected_decision": "pass",
+      "request": {
+        "prompt": "Return a JSON object with the fields 'name' and 'age' for a fictional person.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "{\"name\": \"Alice\", \"age\": 30}",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "em-001",
+      "category": "empty_response",
+      "expected_decision": "fail",
+      "request": {
+        "prompt": "Tell me about the Roman Empire.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "em-002",
+      "category": "empty_response",
+      "expected_decision": "fail",
+      "request": {
+        "prompt": "Summarize the French Revolution.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "   ",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "trunc-001",
+      "category": "truncated_response",
+      "expected_decision": "escalate_or_fail",
+      "request": {
+        "prompt": "Explain the complete history of the Roman Empire in detail.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "The Roman Empire was one of the largest empires in ancient history. It began with Augustus Caesar in 27 BC and spanned",
+        "finish_reason": "length"
+      }
+    },
+    {
+      "id": "trunc-002",
+      "category": "truncated_response",
+      "expected_decision": "escalate_or_fail",
+      "request": {
+        "prompt": "Write a Python function to sort a list.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "Here is the function:\n```python\ndef sort_list(items):\n    return sorted(items",
+        "finish_reason": "length"
+      }
+    },
+    {
+      "id": "rep-001",
+      "category": "degenerate_repetition",
+      "expected_decision": "fail",
+      "request": {
+        "prompt": "Describe the benefits of exercise.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise exercise",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "rep-002",
+      "category": "degenerate_repetition",
+      "expected_decision": "fail",
+      "request": {
+        "prompt": "What is the meaning of life?",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "the the the the the the the the the the the the the the the the the the the the the the the the the the the the the",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "json-bad-001",
+      "category": "invalid_structured_output",
+      "expected_decision": "fail_or_escalate",
+      "request": {
+        "prompt": "Return the result as a JSON object with key 'status' and value 'ok'.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "Sure! Here is the result: status: ok (but not JSON)",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "json-bad-002",
+      "category": "invalid_structured_output",
+      "expected_decision": "fail_or_escalate",
+      "request": {
+        "prompt": "Output a JSON array of three colors.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "Red, Green, Blue",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "partial-001",
+      "category": "partial_quality",
+      "expected_decision": "escalate_or_pass",
+      "request": {
+        "prompt": "List three benefits of drinking water.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "Drinking water helps with hydration. It also supports kidney function.",
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "id": "partial-002",
+      "category": "partial_quality",
+      "expected_decision": "escalate_or_pass",
+      "request": {
+        "prompt": "Explain what a database index is.",
+        "model_id": "auto"
+      },
+      "response": {
+        "model_id": "openai/gpt-4o",
+        "provider": "openrouter",
+        "output": "A database index is a data structure that improves query speed.",
+        "finish_reason": "stop"
+      }
+    }
+  ]
+}
