@@ -14,6 +14,13 @@ from app.evaluation.base import BaseEvaluator
 from app.evaluation.deterministic import DeterministicEvaluator
 from app.evaluation.llm_judge import JudgeConfig, JudgeCaller, LLMJudgeEvaluator
 from app.evaluation.deepeval_adapter import DeepEvalConfig, DeepEvalEvaluator
+from app.evaluation.decision_engine import (
+    ThresholdConfig,
+    QualityDecisionResult,
+    QualityDecisionEngine,
+    DEFAULT_PASS_THRESHOLD,
+    DEFAULT_ESCALATE_THRESHOLD,
+)
 
 __all__ = [
     "EvaluationStatus",
@@ -27,4 +34,9 @@ __all__ = [
     "LLMJudgeEvaluator",
     "DeepEvalConfig",
     "DeepEvalEvaluator",
+    "ThresholdConfig",
+    "QualityDecisionResult",
+    "QualityDecisionEngine",
+    "DEFAULT_PASS_THRESHOLD",
+    "DEFAULT_ESCALATE_THRESHOLD",
 ]
