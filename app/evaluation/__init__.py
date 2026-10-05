@@ -21,6 +21,7 @@ from app.evaluation.decision_engine import (
     DEFAULT_PASS_THRESHOLD,
     DEFAULT_ESCALATE_THRESHOLD,
 )
+from app.evaluation.pipeline import EvaluationPipeline, EvaluationPipelineResult
 
 __all__ = [
     "EvaluationStatus",
@@ -39,4 +40,6 @@ __all__ = [
     "QualityDecisionEngine",
     "DEFAULT_PASS_THRESHOLD",
     "DEFAULT_ESCALATE_THRESHOLD",
+    "EvaluationPipeline",
+    "EvaluationPipelineResult",
 ]
