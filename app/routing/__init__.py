@@ -14,6 +14,9 @@
 # Import router directly: from app.routing.router import IntelligentRouter
 # Import result directly: from app.routing.result import RouterResult
 #
+# Phase 4 Part 1 — Escalation Policy & Result Schema
+# Import directly: from app.routing.escalation_policy import EscalationPolicy, ...
+#
 # Deliberately NOT re-exporting all symbols here to avoid circular imports:
 # candidate_selector imports from app.classification, which imports from
 # app.routing.analyzer, creating a cycle if __init__.py re-exports both.

@@ -95,3 +95,20 @@ class ProviderNotRegisteredError(RoutingError):
     Distinct from ProviderUnavailableError (which is a runtime network error):
     this is a configuration / startup error — the provider was never wired up.
     """
+
+
+# ── Escalation Errors (Phase 4) ──────────────────────────────────────────────
+
+class EscalationError(RouteMindError):
+    """Base class for errors in the escalation subsystem."""
+
+
+class EscalationPolicyError(EscalationError):
+    """
+    Raised when an escalation policy encounters an invalid configuration
+    or an invalid attempt state that cannot be represented as a structured
+    policy result.
+
+    This is NOT raised for normal expected outcomes (PASS, FAIL,
+    ESCALATION_EXHAUSTED, etc.) — those return EscalationPolicyResult.
+    """
